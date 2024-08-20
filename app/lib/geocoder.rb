@@ -14,7 +14,6 @@ module Geocoder
   def self.request_geo_data(query)
     uri = URI(url(query))
     headers = {"Content-Type" => "application/json", "User-Agent" => "Hoffer Apple Coding Test"}
-    puts("Requesting Geocode API")
     response = Net::HTTP.get(uri, headers)
     JSON.parse(response)
   end

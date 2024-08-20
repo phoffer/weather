@@ -2,19 +2,9 @@ require "net/http"
 require "json"
 
 module Weather
-  # def self.lookup(query)
-  #   data = search(query).dig(0)
-  #   {
-  #     zip: data.dig("address", "postcode"),
-  #     lat: data.dig("lat"),
-  #     lon: data.dig("lon"),
-  #   }
-  # end
-
   def self.request_weather_data(lat, lon)
     uri = URI(url(lat, lon))
     headers = {"Content-Type" => "application/json", "User-Agent" => "Hoffer Apple Coding Test"}
-    puts("Requesting Weather API")
     response = Net::HTTP.get(uri, headers)
     JSON.parse(response)
   end
