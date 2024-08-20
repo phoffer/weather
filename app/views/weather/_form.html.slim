@@ -1,0 +1,10 @@
+= form_with url: "/weather", method: :get do |form|
+  .field
+    label.label
+      | Location
+    .control
+      input.input[type="text" name="location" placeholder="Location", value=params[:location]]
+  .field.is-grouped
+    .control
+      button.button.is-primary
+        | Submit
