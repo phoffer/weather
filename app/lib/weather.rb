@@ -7,7 +7,7 @@ module Weather
     headers = {"Content-Type" => "application/json", "User-Agent" => "Hoffer Apple Coding Test"}
     response = Net::HTTP.get(uri, headers)
     res = JSON.parse(response)
-    raise Exception.new("Forecast lookup failed") if res["error"]
+    raise StandardError.new("Forecast lookup failed") if res["error"]
     res
   end
 

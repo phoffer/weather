@@ -5,7 +5,7 @@ class WeatherController < ApplicationController
 
   def weather
     @forecast = Meteorologist.forecast(params[:location])
-  rescue Exception => e
+  rescue => e
     @error = e.message
   end
 end
