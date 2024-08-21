@@ -4,6 +4,7 @@ require "json"
 module Geocoder
   def self.lookup(query)
     data = request_geo_data(query).dig(0)
+    raise Exception.new("Location lookup failed") unless data
     {
       zip: data.dig("address", "postcode"),
       lat: data.dig("lat"),

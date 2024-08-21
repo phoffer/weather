@@ -6,7 +6,9 @@ module Weather
     uri = URI(url(lat, lon))
     headers = {"Content-Type" => "application/json", "User-Agent" => "Hoffer Apple Coding Test"}
     response = Net::HTTP.get(uri, headers)
-    JSON.parse(response)
+    res = JSON.parse(response)
+    raise Exception.new("Forecast lookup failed") if res["error"]
+    res
   end
 
   def self.url(lat, lon)
