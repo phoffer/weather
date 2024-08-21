@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.open-meteo.com/v1/forecast?current=temperature_2m,precipitation,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,rain_sum,precipitation_hours&hourly=temperature_2m,precipitation,weather_code&latitude=apple_lat&longitude=apple_lon&precipitation_unit=inch&temperature_unit=fahrenheit&timezone=auto&wind_speed_unit=mph
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Hoffer Apple Coding Test
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Host:
+      - api.open-meteo.com
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Wed, 21 Aug 2024 21:29:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '113'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"error":true,"reason":"Data corrupted at path ''''. Cannot initialize
+        Float from invalid String value apple_lat."}'
+  recorded_at: Wed, 21 Aug 2024 21:29:49 GMT
+recorded_with: VCR 6.3.1

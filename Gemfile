@@ -37,6 +37,8 @@ group :development, :test do
   gem "ffaker"
   gem "simplecov", require: false
   gem "standard"
+  gem "vcr"
+  gem "webmock"
 end
 
 group :development do
