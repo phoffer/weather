@@ -1,0 +1,34 @@
+table.table
+  thead
+    tr
+      th Conditions
+      th Current Temp
+      th Low Temp
+      th High Temp
+      th Precipitation
+      - if forecast.cached?
+        th Cached At
+  tbody
+    tr
+      td= forecast.conditions[:time]
+      td= forecast.conditions[:temperature]
+      td= forecast.daily.first[:low]
+      td= forecast.daily.first[:high]
+      td= forecast.conditions[:precipitation]
+      - if forecast.cached?
+        td= forecast.cached_at
+br
+table.table
+  thead
+    tr
+      th Daily Forecast
+      th Low Temp
+      th High Temp
+      th Precipitation
+  tbody
+    - forecast.daily.each do |daily|
+      tr
+        td= daily[:date]
+        td= daily[:low]
+        td= daily[:high]
+        td= daily[:precipitation]

@@ -1,9 +1,7 @@
 = render "form"
+br
 - if @error
   .notification.is-danger= @error
+br
 - if @forecast
-  - if @forecast["cache"]
-    p Cached at: #{Time.at @forecast["cache"]}
-  pre
-    code
-      = @forecast
+  = render "forecast", forecast: @forecast

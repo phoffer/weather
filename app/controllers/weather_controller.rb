@@ -4,7 +4,7 @@ class WeatherController < ApplicationController
   end
 
   def weather
-    @forecast = Meteorologist.forecast(params[:location])
+    @forecast = ForecastPresenter.new(Meteorologist.forecast(params[:location]))
   rescue => e
     @error = e.message
   end

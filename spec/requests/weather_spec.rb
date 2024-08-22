@@ -5,6 +5,7 @@ RSpec.describe "Weather", type: :request do
     it "Loads the root page" do
       get root_path
       expect(response).to have_http_status(200)
+      expect(response.body).to include("Get Forecast!")
     end
   end
 
@@ -13,6 +14,7 @@ RSpec.describe "Weather", type: :request do
       VCR.use_cassette("apple-hq") do
         get weather_path(location: "1 Apple Park Way")
         expect(response).to have_http_status(200)
+      expect(response.body).to include("84.8")
       end
     end
 

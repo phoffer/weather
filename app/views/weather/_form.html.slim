@@ -1,8 +1,10 @@
 = form_with url: weather_path, method: :get do |form|
-  .field
-    = form.label "Location", class: "label"
-    .control
-      = form.text_field :location, value: params[:location], placeholder: "Location", class: "input"
-  .field.is-grouped
-    .control
-      = form.submit 'Get Forecast!', class: 'button is-primary'
+  .grid
+    .cell.is-col-min-3
+      .field
+        .control
+          = form.text_field :location, value: params[:location], placeholder: "Location", class: "input"
+    .cell.is-col-min-2
+      .field.is-grouped
+        .control
+          = form.submit 'Get Forecast!', class: 'button is-primary'
